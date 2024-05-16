@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>MilenaFerm</title>
 </head>
-<body>
+<body class="">
 <div class="video position-relative">
-    <video autoplay muted loop id="myVideo" poster="@yield('poster')">
+    <video autoplay muted loop id="myVideo" poster="@yield('poster')" class="w-100">
         <source src="@yield('video')">
     </video>
 </div>
@@ -20,9 +20,12 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand ms-5" href="#">MilenaFerm</a>
+                <a class="navbar-brand ms-5" href="{{route('home')}}">MilenaFerm</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto me-5">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{route('home')}}"><h5>Главная</h5></a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{route('about')}}"><h5>О нас</h5></a>
                         </li>
@@ -30,10 +33,10 @@
                             <a class="nav-link" aria-current="page" href="{{route('projects')}}"><h5>Проекты</h5></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#"><h5>Журнал</h5></a>
+                            <a class="nav-link" aria-current="page" href="{{route('review')}}"><h5>Комментарии</h5></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#"><h5>Контакты</h5></a>
+                            <a class="nav-link" aria-current="page" href="{{route('contact')}}"><h5>Контакты</h5></a>
                         </li>
                     </ul>
                 </div>
@@ -41,12 +44,12 @@
         </nav>
     </header>
 </div>
-<div class="position-absolute top-50 ms-5 bottom-50 w-75 text-center text-white">
-    <div class="bg-dark bg-gradient bg-opacity-75 p-5">
+<div class="position-absolute top-50 container ms-5 bottom-50 w-75 text-center text-white">
+    <div class="ms-5 bg-dark bg-gradient bg-opacity-75 p-5">
         @yield('preview')
     </div>
 </div>
-<div class="container mt-5">
+<div class="container">
     @yield('content')
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

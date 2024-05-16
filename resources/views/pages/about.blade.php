@@ -78,5 +78,20 @@
     </div>
     <div class="mt-5">
         <h1>Отзывы клиентов о нашей ферме</h1>
+        <div class="row mt-5">
+            @foreach($reviews as $review)
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3>{{$review->FIO}}</h3>
+                        </div>
+                        <div class="col-lg-4">
+                            <span>{{Carbon\Carbon::make($review->created_at)->format('d.m.Y')}}</span>
+                        </div>
+                        <p>{{$review->review}}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection

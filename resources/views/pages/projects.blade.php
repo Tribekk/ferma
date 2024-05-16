@@ -11,7 +11,32 @@
         предложим самые эффективные форматы партнерства.</p>
 @endsection
 @section('content')
-    @foreach($projects as $project)
-        <h1>{{$project->name}}</h1>
-    @endforeach
+    <div class="mt-5">
+        <hr>
+        @foreach($projects as $project)
+            @if($project->id % 2 == 0)
+                <div class="row mt-5">
+                    <div class="col-lg-8">
+                        <h1>{{$project->name}}</h1>
+                        {!! $project->preview !!}
+                        <a href="{{route('project', ['project' => $project])}}">Перейти на страницу проекта...</a>
+                    </div>
+                    <div class="col-lg-4">
+                        <img src="http://127.0.0.1:8001/storage/{{$project->img}}" alt="" class="w-100">
+                    </div>
+                </div>
+            @else
+                <div class="row mt-5">
+                    <div class="col-lg-4">
+                        <img src="http://127.0.0.1:8001/storage/{{$project->img}}" alt="" class="w-100">
+                    </div>
+                    <div class="col-lg-8">
+                        <h1>{{$project->name}}</h1>
+                        {!! $project->preview !!}
+                        <a href="{{route('project', ['project' => $project])}}">Перейти на страницу проекта...</a>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+    </div>
 @endsection
